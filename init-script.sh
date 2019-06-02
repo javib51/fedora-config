@@ -2,6 +2,7 @@
 
 # VARS
 export FLUTTERV='flutter_linux_v1.5.4-hotfix.2-stable.tar.xz'
+export GCLOUDSDKV='google-cloud-sdk-248.0.0-linux-x86_64.tar.gz'
 # Fedora update
 sudo dnf update -y
 sudo rm -rf /var/cache/PackageKit
@@ -54,6 +55,7 @@ wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/$FLUTTER
 tar xf ./$FLUTTERV
 rm -rf ./$FLUTTERV
 export PATH="$PATH:`pwd`/flutter/bin"
+echo 'export PATH="$PATH:~/programs/flutter/bin"' >> ~/.bashrc
 flutter upgrade
 flutter precache
 
@@ -70,4 +72,18 @@ sudo mkdir -p /usr/local/dart-out/
 ./tools/build.py --mode release --arch x64 create_sdk
 ./tools/build.py --mode release --arch x64 runtime
 sudo ln -s -f /usr/local/dart-out/ out
+echo 'export PATH="$PATH:~/programs/dart-sdk/sdk/out/ReleaseX64"' >> ~/.bashrc
+
+# Install gcloud sdk
+cd ~/programs
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$GCLOUDSDKV
+tar xf ./$GCLOUDSDKV
+rm ./$GCLOUDSDKV
+cd google-cloud-sdk/
+./install.sh
+cd
+gcloud components install kubectl app-engine-python app-engine-go
+
+# Reboot
 sudo reboot
+
