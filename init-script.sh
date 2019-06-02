@@ -70,3 +70,4 @@ sudo mkdir -p /usr/local/dart-out/
 ./tools/build.py --mode release --arch x64 create_sdk
 ./tools/build.py --mode release --arch x64 runtime
 sudo ln -s -f /usr/local/dart-out/ out
+sudo reboot
