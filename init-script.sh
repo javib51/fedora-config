@@ -13,6 +13,8 @@ sudo ln -s /var/lib/snapd/snap /snap
 
 # git config
 git config --global credential.helper 'cache --timeout=3600'
+git config --global user.name "Javier Benitez"
+git config --global user.email javier.benitezf51@gmail.com
 
 # Install docker
 sudo dnf -y remove docker \
