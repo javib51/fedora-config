@@ -44,7 +44,13 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 
 # Install snaps
-sudo snap install telegram-desktop postman zenkit mailspring overleaf polarr
+sudo snap install telegram-desktop \
+			postman \
+			zenkit \
+			mailspring \
+			overleaf \
+			polarr \
+			spotify
 sudo snap install goland --classic
 sudo snap install pycharm-professional --classic
 sudo snap install slack --classic
@@ -64,9 +70,11 @@ export PATH="$PATH:`pwd`/flutter/bin"
 echo 'export PATH="$PATH:~/programs/flutter/bin"' >> ~/.bashrc
 flutter upgrade
 flutter precache
+echo 'Accept flutter licenses'
+flutter doctor --android-licenses
 
 # Install dart
-sudo dnf -y install git subversion make gcc-c++ python
+sudo dnf -y install git subversion make gcc-c++ python libstdc++.i686
 cd ~/programs
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 export PATH=$PATH:`pwd`/depot_tools
