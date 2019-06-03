@@ -3,14 +3,19 @@
 # VARS
 export FLUTTERV='flutter_linux_v1.5.4-hotfix.2-stable.tar.xz'
 export GCLOUDSDKV='google-cloud-sdk-248.0.0-linux-x86_64.tar.gz'
+
 # Fedora update
 sudo dnf update -y
 sudo rm -rf /var/cache/PackageKit
 sudo systemctl –now mask packagekit-offline-update.service
+
+# Install basics
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 sudo dnf install ~/Downloads/google-chrome-stable_current_x86_64.rpm 
-sudo dnf install -y snapd git vim htop
+sudo dnf install -y snapd git vim htop bridge-utils libvirt virt-install qemu-kvm virt-top libguestfs-tools
 sudo ln -s /var/lib/snapd/snap /snap
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
 
 # git config
 git config --global credential.helper 'cache --timeout=3600'
