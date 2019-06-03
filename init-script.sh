@@ -83,6 +83,7 @@ rm ./$GCLOUDSDKV
 cd google-cloud-sdk/
 ./install.sh
 cd
+source ~/.bashrc
 gcloud components install kubectl app-engine-python app-engine-go
 
 # Reboot
