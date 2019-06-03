@@ -47,6 +47,7 @@ sudo snap install intellij-idea-ultimate --classic
 sudo snap install webstorm --classic
 sudo snap install skype --classic
 sudo snap install go --classic
+sudo snap install android-studio --classic
 
 # Install flutter
 mkdir ~/programs
