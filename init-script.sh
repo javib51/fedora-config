@@ -13,7 +13,20 @@ sudo systemctl –now mask packagekit-offline-update.service
 # Install basics
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 sudo dnf install ~/Downloads/google-chrome-stable_current_x86_64.rpm 
-sudo dnf install -y snapd git vim htop bridge-utils libvirt virt-install qemu-kvm virt-top libguestfs-tools
+sudo dnf install -y snapd \
+		    git \
+		    vim \
+		    htop \
+		    bridge-utils \
+		    libvirt \
+		    virt-install \
+		    qemu-kvm \
+		    virt-top \
+		    libguestfs-tools \
+		    mariadb \
+		    python-devel \
+		    mysql-devel \
+		    python3-devel
 sudo ln -s /var/lib/snapd/snap /snap
 sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
