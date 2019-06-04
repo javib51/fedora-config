@@ -3,6 +3,7 @@
 # VARS
 export FLUTTERV='flutter_linux_v1.5.4-hotfix.2-stable.tar.xz'
 export GCLOUDSDKV='google-cloud-sdk-248.0.0-linux-x86_64.tar.gz'
+export MYSQLWBV='mysql-workbench-community-8.0.16-1.fc30.x86_64.rpm'
 
 # Fedora update
 sudo dnf update -y
@@ -98,6 +99,11 @@ cd google-cloud-sdk/
 cd
 source ~/.bashrc
 gcloud components install kubectl app-engine-python app-engine-go
+
+# Install MYSQL Workbench
+cd ~/Downloads
+wget https://dev.mysql.com/get/Downloads/MySQLGUITools/$MYSQLWBV
+sudo dnf install ./$MYSQLWBV
 
 # Reboot
 sudo reboot
